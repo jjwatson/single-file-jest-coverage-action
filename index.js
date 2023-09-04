@@ -29,7 +29,7 @@ const HTML_STRING = (cssContents, htmlBodyContents, jsContents) => `
 const doTheThings = async () => {
     try {
         console.log('hello');
-        const reportsDir = core.getInput('reports-directory');
+        const reportsDir = core.getInput('reports-path');
 
         console.log(await fs.promises.readdir('.'));
 
