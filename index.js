@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const core = require('@actions/core');
-const github = require('@actions/github');
 
 const HTML_STRING = (cssContents, htmlBodyContents, jsContents) => `
     <!DOCTYPE html>
@@ -47,9 +46,6 @@ const doTheThings = async () => {
         const htmlString = HTML_STRING(cssContents, htmlBodyContents, jsContents);
 
         await fs.promises.writeFile(path.join(reportsDir, 'combined-report.html'), htmlString, { encoding: 'utf-8' });
-
-        // Get the JSON webhook payload for the event that triggered the workflow
-        const payload = JSON.stringify(github.context.payload, undefined, 2)
     } catch (error) {
         core.setFailed(error.message);
     }
