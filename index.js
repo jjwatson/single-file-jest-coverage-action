@@ -47,7 +47,7 @@ const doTheThings = async () => {
 
         const htmlString = HTML_STRING(cssContents, htmlBodyContents, jsContents);
 
-        await fs.promises.writeFile('combined-report.html', htmlString, { encoding: 'utf-8' });
+        await fs.promises.writeFile(path.join(reportsDir, 'combined-report.html'), htmlString, { encoding: 'utf-8' });
 
         // Get the JSON webhook payload for the event that triggered the workflow
         const payload = JSON.stringify(github.context.payload, undefined, 2)
