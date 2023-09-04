@@ -28,11 +28,7 @@ const HTML_STRING = (cssContents, htmlBodyContents, jsContents) => `
 
 const doTheThings = async () => {
     try {
-        console.log('hello');
         const reportsDir = core.getInput('reports-path');
-
-        console.log(await fs.promises.readdir('.'));
-
         const files = await fs.promises.readdir(reportsDir);
 
         const cssContents = await Promise.all(files
@@ -54,7 +50,6 @@ const doTheThings = async () => {
 
         // Get the JSON webhook payload for the event that triggered the workflow
         const payload = JSON.stringify(github.context.payload, undefined, 2)
-        console.log(`The event payload: ${payload}`);
     } catch (error) {
         core.setFailed(error.message);
     }
