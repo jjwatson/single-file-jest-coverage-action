@@ -1,0 +1,10 @@
+name: 'Single File Report Summary Action'
+description: 'Combines a jest coverage report into one html file so its easy to reference with a pre-signed S3 URL. This is a temporary workaround.'
+inputs:
+  reports-path:
+    description: 'Path to the coverage report html files'
+    required: true
+    default: 'coverage/lcov-report'
+runs:
+  using: 'node16'
+  main: 'index.js'
