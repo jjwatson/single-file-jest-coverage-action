@@ -28,7 +28,10 @@ const HTML_STRING = (cssContents, htmlBodyContents, jsContents) => `
 
 const doTheThings = async () => {
     try {
+        console.log('hello');
         const reportsDir = core.getInput('reports-directory');
+
+        console.log(await fs.promises.readdir('.'));
 
         const files = await fs.promises.readdir(reportsDir);
 
